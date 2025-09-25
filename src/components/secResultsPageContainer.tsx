@@ -95,7 +95,7 @@ export function SECResultsPageContainer({ onBack }: { onBack: () => void }) {
       {/* 🔖 Якір для скролу */}
       <div ref={topRef} />
       <CMPResults
-        modeLabel="Підсадка / Автобус / Залізниця"
+        modeLabel="Carpool / Bus / Rail"
         from={from}
         to={to}
         whenISO={whenISO}

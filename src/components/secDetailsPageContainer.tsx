@@ -176,11 +176,11 @@ export function SECDetailsPageContainer({
   const footerCtaLabel =
     offer.kind === "carpool"
       ? offer.instant
-        ? "Миттєво забронювати"
-        : "Надіслати запит"
+        ? "Book instantly"
+        : "Send request"
       : offer.kind === "bus"
-        ? "Купити квиток"
-        : "Купити квиток";
+        ? "Buy ticket"
+        : "Buy ticket";
 
   const handleConfirm = () => {
     if (offer.kind !== "carpool" && onRedirectProvider) {
@@ -241,7 +241,7 @@ export function SECDetailsPageContainer({
                 {offer.kind === "carpool" && (
                   <div className="inline-flex items-center gap-1">
                     <User className="h-4 w-4" />
-                    Місць: {offer.seatsLeft}
+                    Seats: {offer.seatsLeft}
                   </div>
                 )}
               </div>
@@ -266,8 +266,7 @@ export function SECDetailsPageContainer({
         {/* Info note */}
         {offer.provider && (
           <div className="rounded-xl border p-3 text-sm text-muted-foreground flex items-start gap-2">
-            <Info className="h-4 w-4 mt-0.5" /> Пропозиція
-            надана:{" "}
+            <Info className="h-4 w-4 mt-0.5" /> Offer provided by:{" "}
             <span className="ml-1 font-medium text-foreground">
               {offer.provider}
             </span>
@@ -286,7 +285,7 @@ export function SECDetailsPageContainer({
         <div className="mx-auto max-w-2xl px-4 py-3 flex items-center justify-between gap-3">
           <div className="text-sm">
             <div className="font-semibold">
-              {offer.priceUAH} грн
+              {offer.priceUAH} usd
             </div>
             <div className="text-muted-foreground text-xs">
               Fees included
@@ -363,7 +362,7 @@ function CarpoolSection({
 
       <div className="rounded-xl border p-4">
         <div className="mb-1 text-sm font-semibold flex items-center gap-2">
-          <Car className="h-4 w-4" /> Авто
+          <Car className="h-4 w-4" /> Vehicle
         </div>
         <div className="text-sm text-muted-foreground">
           {offer.car.model}
@@ -374,7 +373,7 @@ function CarpoolSection({
       {(offer.rules?.length || offer.baggage || offer.note) && (
         <div className="rounded-xl border p-4 space-y-2">
           <div className="text-sm font-semibold mb-1">
-            Умови поїздки
+           Conditions
           </div>
           {offer.rules?.length ? (
             <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-0.5">
@@ -385,7 +384,7 @@ function CarpoolSection({
           ) : null}
           {offer.baggage && (
             <div className="text-sm text-muted-foreground inline-flex items-center gap-2">
-              <Luggage className="h-4 w-4" /> Багаж:{" "}
+              <Luggage className="h-4 w-4" /> Lagguage:{" "}
               {offer.baggage}
             </div>
           )}
@@ -405,7 +404,7 @@ function BusSection({ offer }: { offer: BusDetail }) {
     <section className="space-y-3">
       <div className="rounded-xl border p-4">
         <div className="mb-1 text-sm font-semibold flex items-center gap-2">
-          <Bus className="h-4 w-4" /> Перевізник
+          <Bus className="h-4 w-4" /> Carrier
         </div>
         <div className="text-sm text-muted-foreground">
           {offer.carrierName ?? "—"}
@@ -430,9 +429,9 @@ function BusSection({ offer }: { offer: BusDetail }) {
       )}
       {offer.seatSelection && (
         <div className="rounded-xl border p-4 text-sm text-muted-foreground flex items-center justify-between">
-          Вибір місця доступний
+          Seat selection available
           <button className="inline-flex items-center gap-1 rounded-lg border px-2 py-1 text-xs hover:bg-accent">
-            Обрати <ChevronRight className="h-3.5 w-3.5" />
+            Choose <ChevronRight className="h-3.5 w-3.5" />
           </button>
         </div>
       )}
@@ -524,7 +523,7 @@ function QuickConfirmSheet({
             onClick={onClose}
             className="rounded-lg border px-3 py-2 text-sm hover:bg-accent"
           >
-            Скасувати
+            Cancel
           </button>
           <button
             onClick={onConfirm}
@@ -553,12 +552,12 @@ function buildConfirmLines(
           : offer.routeTitle,
   });
   lines.push({
-    label: "Відправлення",
+    label: "Depart",
     value: formatDateTime(depart),
   });
-  lines.push({ label: "Ціна", value: `${offer.priceUAH} грн` });
+  lines.push({ label: "Price", value: `${offer.priceUAH} грн` });
   if (offer.kind === "carpool") {
-    lines.push({ label: "Водій", value: offer.driver.name });
+    lines.push({ label: "Driver", value: offer.driver.name });
     lines.push({
       label: "Місць",
       value: String(offer.seatsLeft),

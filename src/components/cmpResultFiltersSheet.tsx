@@ -212,7 +212,7 @@ export function CMPResultFiltersSheet({
             <div className="mb-2 flex items-center gap-2">
               <Clock className="h-5 w-5" />
               <h4 className="text-sm font-semibold">
-                {t("filters.time") ?? "Час відправлення"}
+                {t("filters.time") ?? "Depart time"}
               </h4>
             </div>
             <div className="grid grid-cols-2 gap-2">

@@ -126,7 +126,7 @@ function EmptyBlock({
       <div className="text-sm text-muted-foreground">{message}</div>
       {showFilterHint && (
         <div className="mt-2 text-sm text-muted-foreground">
-          Змініть дату та/або скиньте фільтри
+          Change the date and/or reset filters
         </div>
       )}
     </div>
@@ -167,25 +167,25 @@ function CarpoolCard({
           <div className="flex flex-wrap items-center gap-4 text-sm">
             <div className="flex items-center gap-1">
               <User className="h-4 w-4" />
-              <span>Водій: {offer.driverName}</span>
+              <span>Driver: {offer.driverName}</span>
             </div>
             <div className="flex items-center gap-1">
               <Car className="h-4 w-4" />
-              <span>Авто: {offer.carModel}</span>
+              <span>Vehicle: {offer.carModel}</span>
             </div>
           </div>
           <div className="mt-1 grid grid-cols-3 gap-2 text-sm">
             <div className="flex items-center gap-1">
               <Clock className="h-4 w-4" />
-              <span>Час: {offer.time}</span>
+              <span>Time: {offer.time}</span>
             </div>
             <div className="flex items-center gap-1">
               <Wallet className="h-4 w-4" />
-              <span>Ціна: {formatUAH(offer.priceUAH)}</span>
+              <span>Price: {formatUAH(offer.priceUAH)}</span>
             </div>
             <div className="flex items-center gap-1">
               <Users className="h-4 w-4" />
-              <span>Місць: {offer.seatsLeft}</span>
+              <span>Seats: {offer.seatsLeft}</span>
             </div>
           </div>
         </div>
@@ -193,7 +193,7 @@ function CarpoolCard({
           onClick={onClick}
           className="h-9 rounded-xl bg-primary px-3 text-sm font-medium text-primary-foreground hover:opacity-95"
         >
-          Забронювати
+          Book
         </button>
       </div>
     </div>
@@ -218,11 +218,11 @@ function BusCard({
           <div className="mt-1 grid grid-cols-2 gap-2 text-sm">
             <div className="flex items-center gap-1">
               <CalendarClock className="h-4 w-4" />
-              <span>Відправлення: {offer.departTime}</span>
+              <span>Departure: {offer.departTime}</span>
             </div>
             <div className="flex items-center gap-1">
               <Ticket className="h-4 w-4" />
-              <span>Ціна: {formatUAH(offer.priceUAH)}</span>
+              <span>Price: {formatUAH(offer.priceUAH)}</span>
             </div>
           </div>
         </div>
@@ -230,7 +230,7 @@ function BusCard({
           onClick={onClick}
           className="h-9 rounded-xl bg-primary px-3 text-sm font-medium text-primary-foreground hover:opacity-95"
         >
-          Купити квиток
+          But Ticket
         </button>
       </div>
     </div>
@@ -255,11 +255,11 @@ function TrainCard({
           <div className="mt-1 grid grid-cols-2 gap-2 text-sm">
             <div className="flex items-center gap-1">
               <CalendarClock className="h-4 w-4" />
-              <span>Відправлення: {offer.departTime}</span>
+              <span>Departure: {offer.departTime}</span>
             </div>
             <div className="flex items-center gap-1">
               <Ticket className="h-4 w-4" />
-              <span>Ціна: {formatUAH(offer.priceUAH)}</span>
+              <span>Price: {formatUAH(offer.priceUAH)}</span>
             </div>
           </div>
         </div>
@@ -267,7 +267,7 @@ function TrainCard({
           onClick={onClick}
           className="h-9 rounded-xl bg-primary px-3 text-sm font-medium text-primary-foreground hover:opacity-95"
         >
-          Купити квиток
+          But Ticket
         </button>
       </div>
     </div>
@@ -366,7 +366,7 @@ export function CMPResults({
                 className="hidden sm:inline-flex items-center gap-1 rounded-lg border px-2 py-1 text-sm hover:bg-accent"
                 title="Скинути всі фільтри"
               >
-                Скинути
+                Reset
               </button>
             )}
 
@@ -467,8 +467,8 @@ export function CMPResults({
         ) : (
           <EmptyBlock
             icon={Car}
-            title="Підсадка"
-            message="Немає пропозицій на цю дату/маршрут"
+            title="CarPool"
+            message="No offers for this date/route"
             showFilterHint={!!filtersActive}
           />
         )}
@@ -502,8 +502,8 @@ export function CMPResults({
         ) : (
           <EmptyBlock
             icon={Bus}
-            title="Автобуси"
-            message="Немає рейсів на цю дату"
+            title="Buses"
+            message="No trips on this date"
             showFilterHint={!!filtersActive}
           />
         )}
@@ -536,8 +536,8 @@ export function CMPResults({
         ) : (
           <EmptyBlock
             icon={Train}
-            title="Залізниця"
-            message="Немає рейсів на цю дату"
+            title="Railway"
+            message="No trips on this date"
             showFilterHint={!!filtersActive}
           />
         )}
@@ -548,8 +548,7 @@ export function CMPResults({
         <div className="flex items-start gap-2">
           <Info className="mt-0.5 h-4 w-4" />
           <p>
-            Порада: змініть час відправлення або сусідній район — шанси знайти
-            варіант зростуть.
+            Tip: adjust the departure time or choose a nearby area — you'll have a better chance of finding a match.
           </p>
         </div>
       </div>

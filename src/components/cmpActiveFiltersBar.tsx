@@ -180,7 +180,7 @@ export function CMPActiveFiltersBar({
           })
         }
       >
-        Перевізники: {carriersCount}
+        Carriers: {carriersCount}
       </Chip>,
     );
   }
