@@ -5,7 +5,7 @@ import type { CarpoolOffer, BusOffer, TrainOffer } from "./resultsFiltering";
 export const mockCarpool: CarpoolOffer[] = [
   {
     id: "c1",
-    driverName: "Іван",
+    driverName: "Ivan",
     carModel: "Skoda Fabia",
     time: "12:30",
     priceUAH: 150,
@@ -17,7 +17,7 @@ export const mockCarpool: CarpoolOffer[] = [
   },
   {
     id: "c2",
-    driverName: "Олег",
+    driverName: "Oleh",
     carModel: "Renault",
     time: "13:00",
     priceUAH: 120,
@@ -29,7 +29,7 @@ export const mockCarpool: CarpoolOffer[] = [
   },
   {
     id: "c3",
-    driverName: "Настя",
+    driverName: "Nastya",
     carModel: "Toyota",
     time: "09:15",
     priceUAH: 200,
@@ -45,7 +45,7 @@ export const mockCarpool: CarpoolOffer[] = [
 export const mockBuses: BusOffer[] = [
   {
     id: "b1",
-    routeTitle: "Львів → Київ",
+    routeTitle: "Lviv → Kyiv",
     departTime: "14:00",
     priceUAH: 350,
     carrierId: "flix",
@@ -53,18 +53,18 @@ export const mockBuses: BusOffer[] = [
   },
   {
     id: "b2",
-    routeTitle: "Львів → Тернопіль",
+    routeTitle: "Lviv → Ternopil",
     departTime: "15:00",
     priceUAH: 180,
-
+    carrierId: "gunsel",
     carrierName: "Gunsel",
   },
   {
     id: "b3",
-    routeTitle: "Львів → Київ",
+    routeTitle: "Lviv → Kyiv",
     departTime: "08:30",
     priceUAH: 310,
-  
+    carrierId: "flix",
     carrierName: "FlixBus",
   },
 ];
@@ -73,19 +73,19 @@ export const mockBuses: BusOffer[] = [
 export const mockTrains: TrainOffer[] = [
   {
     id: "t1",
-    trainTitle: "Інтерсіті №743",
+    trainTitle: "Intercity No. 743",
     departTime: "16:20",
     priceUAH: 600,
     carrierId: "udz",
-    carrierName: "Укрзалізниця",
+    carrierName: "Ukrzaliznytsia",
   },
   {
     id: "t2",
-    trainTitle: "Нічний №128",
+    trainTitle: "Night No. 128",
     departTime: "23:10",
     priceUAH: 480,
     carrierId: "udz",
-    carrierName: "Укрзалізниця",
+    carrierName: "Ukrzaliznytsia",
   },
 ];
 
@@ -94,5 +94,5 @@ export const mockCarriers = [
   { id: "vp", label: "VPidsadka" },
   { id: "flix", label: "FlixBus" },
   { id: "gunsel", label: "Gunsel" },
-  { id: "udz", label: "Укрзалізниця" },
+  { id: "udz", label: "Ukrzaliznytsia" },
 ];

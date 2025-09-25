@@ -289,7 +289,7 @@ export function SECDetailsPageContainer({
               {offer.priceUAH} грн
             </div>
             <div className="text-muted-foreground text-xs">
-              Включає базові збори
+              Fees included
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -298,7 +298,7 @@ export function SECDetailsPageContainer({
                 onClick={() => onContactDriver?.(offer.id)}
                 className="hidden sm:inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm hover:bg-accent"
               >
-                <Phone className="h-4 w-4" /> Написати водію
+                <Phone className="h-4 w-4" /> Message Driver
               </button>
             )}
             <button
@@ -335,7 +335,7 @@ function CarpoolSection({
     <section className="space-y-3">
       <div className="rounded-xl border p-4">
         <div className="mb-2 text-sm font-semibold flex items-center gap-2">
-          <User className="h-4 w-4" /> Водій
+          <User className="h-4 w-4" /> Driver
         </div>
         <div className="flex items-start justify-between">
           <div className="text-sm">
@@ -346,7 +346,7 @@ function CarpoolSection({
               )}
             </div>
             <div className="text-muted-foreground">
-              Рейтинг: {offer.driver.rating ?? "—"} • Поїздок:{" "}
+              Рейтинг: {offer.driver.rating ?? "—"} • Trips:{" "}
               {offer.driver.trips ?? "—"}
             </div>
           </div>
@@ -355,7 +355,7 @@ function CarpoolSection({
               onClick={() => onContactDriver(offer.id)}
               className="inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-xs hover:bg-accent"
             >
-              <Phone className="h-4 w-4" /> Написати
+              <Phone className="h-4 w-4" /> Write
             </button>
           )}
         </div>
@@ -413,7 +413,7 @@ function BusSection({ offer }: { offer: BusDetail }) {
       </div>
       {(offer.refundPolicy || offer.luggage) && (
         <div className="rounded-xl border p-4 space-y-2">
-          <div className="text-sm font-semibold">Умови</div>
+          <div className="text-sm font-semibold">Conditions</div>
           {offer.refundPolicy && (
             <div className="text-sm text-muted-foreground">
               <Shield className="inline h-4 w-4 mr-1" />{" "}
@@ -454,7 +454,7 @@ function TrainSection({ offer }: { offer: TrainDetail }) {
       </div>
       {(offer.refundPolicy || offer.seatSelection) && (
         <div className="rounded-xl border p-4 space-y-2">
-          <div className="text-sm font-semibold">Умови</div>
+          <div className="text-sm font-semibold">Conditions</div>
           {offer.refundPolicy && (
             <div className="text-sm text-muted-foreground">
               <Shield className="inline h-4 w-4 mr-1" />{" "}
@@ -463,7 +463,7 @@ function TrainSection({ offer }: { offer: TrainDetail }) {
           )}
           {offer.seatSelection && (
             <div className="text-sm text-muted-foreground">
-              Вибір місця доступний
+              Seat selection available)
             </div>
           )}
         </div>
@@ -530,7 +530,7 @@ function QuickConfirmSheet({
             onClick={onConfirm}
             className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-95"
           >
-            <CheckCircle2 className="h-4 w-4" /> Підтвердити
+            <CheckCircle2 className="h-4 w-4" /> Confirm
           </button>
         </div>
       </div>
@@ -599,16 +599,16 @@ function DetailEmpty({ onBack }: { onBack: () => void }) {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center text-center px-6">
       <div className="mb-3 text-lg font-semibold">
-        Цю пропозицію не знайдено
+       Offer not found
       </div>
       <div className="text-sm text-muted-foreground">
-        Можливо, її скасовано або час відправлення минув.
+        It may have been canceled or the departure time has passed.
       </div>
       <button
         onClick={onBack}
         className="mt-4 rounded-lg border px-3 py-2 text-sm hover:bg-accent"
       >
-        Назад до результатів
+        Back to results
       </button>
     </div>
   );
@@ -632,25 +632,27 @@ function formatDateTime(d: Date) {
 
 // ================= Mock usage example =================
 // Можеш створити окремий файл src/mocks/mobilityDetails.ts і звідти брати пропозиції для тесту.
+// ================= Mock usage example =================
+// You can create a separate file src/mocks/mobilityDetails.ts and import offers from there for testing.
 export const mockCarpoolDetail: CarpoolDetail = {
   kind: "carpool",
   id: "c1",
-  from: "Львів",
-  to: "Київ",
+  from: "Lviv",
+  to: "Kyiv",
   dateISO: new Date(Date.now() + 3 * 3600 * 1000).toISOString(),
   priceUAH: 150,
   seatsLeft: 2,
   driver: {
-    name: "Іван",
+    name: "Ivan",
     rating: 4.9,
     trips: 132,
     phoneMasked: "+380••• •• ••",
     verified: true,
   },
-  car: { model: "Skoda Fabia", color: "срібний" },
-  rules: ["Без куріння", "Тихо", "Без тварин"],
-  baggage: "1 місце невеликий рюкзак",
-  note: "Зустрінемось біля Оперного",
+  car: { model: "Skoda Fabia", color: "silver" },
+  rules: ["No smoking", "Quiet", "No pets"],
+  baggage: "1 small backpack",
+  note: "Meet near the Opera House",
   provider: "VPidsadka",
   instant: true,
 };
@@ -658,17 +660,14 @@ export const mockCarpoolDetail: CarpoolDetail = {
 export const mockBusDetail: BusDetail = {
   kind: "bus",
   id: "b1",
-  routeTitle: "Львів → Київ",
+  routeTitle: "Lviv → Kyiv",
   dateISO: new Date(Date.now() + 5 * 3600 * 1000).toISOString(),
-  arrivalISO: new Date(
-    Date.now() + 10 * 3600 * 1000,
-  ).toISOString(),
+  arrivalISO: new Date(Date.now() + 10 * 3600 * 1000).toISOString(),
   priceUAH: 350,
   carrierId: "flix",
   carrierName: "FlixBus",
-  refundPolicy:
-    "Повернення за 24 год до відправлення з комісією",
-  luggage: "1 місце 20кг + ручна кладь",
+  refundPolicy: "Refund up to 24 hours before departure with a fee",
+  luggage: "1 piece 20 kg + carry-on",
   seatSelection: true,
   provider: "AggregatorX",
 };
@@ -676,16 +675,14 @@ export const mockBusDetail: BusDetail = {
 export const mockTrainDetail: TrainDetail = {
   kind: "train",
   id: "t1",
-  trainTitle: "Інтерсіті №743",
-  from: "Львів",
-  to: "Київ",
+  trainTitle: "Intercity No. 743",
+  from: "Lviv",
+  to: "Kyiv",
   dateISO: new Date(Date.now() + 7 * 3600 * 1000).toISOString(),
-  arrivalISO: new Date(
-    Date.now() + 12 * 3600 * 1000,
-  ).toISOString(),
+  arrivalISO: new Date(Date.now() + 12 * 3600 * 1000).toISOString(),
   priceUAH: 600,
-  carriageType: "2-й клас",
+  carriageType: "2nd class",
   seatSelection: false,
-  provider: "Укрзалізниця",
-  refundPolicy: "Повернення відповідно до правил УЗ",
+  provider: "Ukrzaliznytsia",
+  refundPolicy: "Refunds according to UZ rules",
 };
