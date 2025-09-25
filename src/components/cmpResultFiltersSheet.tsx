@@ -278,12 +278,12 @@ export function CMPResultFiltersSheet({
             <div className="mb-2 flex items-center gap-2">
               <Users className="h-5 w-5" />
               <h4 className="text-sm font-semibold">
-                {t("filters.carpool") ?? "Підсадка — параметри"}
+                {t("filters.carpool") ?? "Carpool — settings"}
               </h4>
             </div>
             <div className="grid grid-cols-3 gap-2">
               <LabeledInput
-                label={t("filters.minSeats") ?? "Місць від"}
+                label={t("filters.minSeats") ?? "Seats from"}
                 type="number"
                 inputMode="numeric"
                 min={1}
@@ -299,7 +299,7 @@ export function CMPResultFiltersSheet({
                 icon={ShieldCheck}
                 label={
                   t("filters.onlyVerified") ??
-                  "Лише верифіковані"
+                  "Only verified drivers"
                 }
                 checked={!!draft.onlyVerified}
                 onChange={(checked) =>
@@ -312,7 +312,7 @@ export function CMPResultFiltersSheet({
               <CheckRow
                 icon={Zap}
                 label={
-                  t("filters.instant") ?? "Миттєве бронювання"
+                  t("filters.instant") ?? "Instant booking"
                 }
                 checked={!!draft.onlyInstantBooking}
                 onChange={(checked) =>
@@ -330,7 +330,7 @@ export function CMPResultFiltersSheet({
             <div className="mb-2 flex items-center gap-2">
               <Bus className="h-5 w-5" />
               <h4 className="text-sm font-semibold">
-                {t("filters.carriers") ?? "Перевізники"}
+                {t("filters.carriers") ?? "Carriers"}
               </h4>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -358,7 +358,7 @@ export function CMPResultFiltersSheet({
                     }
                     title={
                       isDisabled
-                        ? "Немає результатів за поточними фільтрами"
+                        ? "No results with the current filters"
                         : undefined
                     }
                   >
@@ -383,26 +383,26 @@ export function CMPResultFiltersSheet({
             <div className="mb-2 flex items-center gap-2">
               <ChevronDown className="h-5 w-5" />
               <h4 className="text-sm font-semibold">
-                {t("sort") ?? "Сортування"}
+                {t("sort") ?? "Sort by"}
               </h4>
             </div>
             <div className="grid grid-cols-4 gap-2 text-sm">
               {[
                 {
                   key: "time-asc",
-                  label: t("time.asc") ?? "Час ↑",
+                  label: t("time.asc") ?? "Time ↑",
                 },
                 {
                   key: "time-desc",
-                  label: t("time.desc") ?? "Час ↓",
+                  label: t("time.desc") ?? "Time ↓",
                 },
                 {
                   key: "price-asc",
-                  label: t("price.asc") ?? "Ціна ↑",
+                  label: t("price.asc") ?? "Price ↑",
                 },
                 {
                   key: "price-desc",
-                  label: t("price.desc") ?? "Ціна ↓",
+                  label: t("price.desc") ?? "Price ↓",
                 },
               ].map((opt) => (
                 <button
@@ -433,13 +433,13 @@ export function CMPResultFiltersSheet({
               onClick={onClose}
               className="h-10 rounded-xl border px-4 text-sm hover:bg-accent"
             >
-              {t("cancel") ?? "Скасувати"}
+              {t("cancel") ?? "Cancel"}
             </button>
             <button
               onClick={apply}
               className="h-10 rounded-xl bg-primary px-4 text-sm font-medium text-primary-foreground hover:opacity-95"
             >
-              {t("apply") ?? "Застосувати"}
+              {t("apply") ?? "Apply filters"}
             </button>
           </div>
         </div>

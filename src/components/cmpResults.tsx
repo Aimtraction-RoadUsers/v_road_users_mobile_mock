@@ -276,7 +276,7 @@ function TrainCard({
 
 /* ===================== Main ===================== */
 export function CMPResults({
-  modeLabel = "Підсадка / Автобус / Залізниця",
+  modeLabel = "Carpool / Bus / Train",
   from,
   to,
   whenISO,
