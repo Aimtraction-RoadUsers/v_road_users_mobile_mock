@@ -441,7 +441,7 @@ export function CMPResults({
 
       {/* ======= Carpool Block ======= */}
       <section className="space-y-3">
-        <BlockHeader icon={Car} title={`🚗 Підсадка (${carpool.length})`} />
+        <BlockHeader icon={Car} title={`🚗 Carpool (${carpool.length})`} />
         {loadingCarpool ? (
           <>
             <CardSkeleton />
@@ -476,7 +476,7 @@ export function CMPResults({
 
       {/* ======= Bus Block ======= */}
       <section className="space-y-3">
-        <BlockHeader icon={Bus} title={`🚌 Автобуси (${buses.length})`} />
+        <BlockHeader icon={Bus} title={`🚌 Buses (${buses.length})`} />
         {loadingBuses ? (
           <>
             <CardSkeleton />
@@ -511,7 +511,7 @@ export function CMPResults({
 
       {/* ======= Train Block ======= */}
       <section className="space-y-3">
-        <BlockHeader icon={Train} title={`🚆 Залізниця (${trains.length})`} />
+        <BlockHeader icon={Train} title={`🚆 Railway (${trains.length})`} />
         {loadingTrains ? (
           <>
             <CardSkeleton />
