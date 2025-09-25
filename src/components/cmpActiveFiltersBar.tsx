@@ -51,10 +51,10 @@ export function CMPActiveFiltersBar({
   if (filters.priceMin != null || filters.priceMax != null) {
     const text =
       filters.priceMin != null && filters.priceMax != null
-        ? `Ціна ${filters.priceMin}–${filters.priceMax} грн`
+        ? `Price ${filters.priceMin}–${filters.priceMax} usd`
         : filters.priceMin != null
-          ? `Ціна від ${filters.priceMin} грн`
-          : `Ціна до ${filters.priceMax} грн`;
+          ? `Price from ${filters.priceMin} usd`
+          : `Price0 to ${filters.priceMax} usd`;
     chips.push(
       <Chip
         key="price"
@@ -86,7 +86,7 @@ export function CMPActiveFiltersBar({
           })
         }
       >
-        Час {tf}–{tt}
+        Time {tf}–{tt}
       </Chip>,
     );
   }
@@ -100,7 +100,7 @@ export function CMPActiveFiltersBar({
           onChange({ ...filters, minSeats: undefined })
         }
       >
-        Місць від {filters.minSeats}
+        Seats from {filters.minSeats}
       </Chip>,
     );
   }
@@ -114,7 +114,7 @@ export function CMPActiveFiltersBar({
           onChange({ ...filters, onlyVerified: false })
         }
       >
-        Лише верифіковані
+        Verified only
       </Chip>,
     );
   }
@@ -128,7 +128,7 @@ export function CMPActiveFiltersBar({
           onChange({ ...filters, onlyInstantBooking: false })
         }
       >
-        Миттєве бронювання
+       Instant booking
       </Chip>,
     );
   }
@@ -151,15 +151,15 @@ export function CMPActiveFiltersBar({
       .filter(([, v]) => v)
       .map(([k]) =>
         k === "carpool"
-          ? "Підсадка"
+          ? "Carpool"
           : k === "bus"
-            ? "Автобуси"
-            : "Залізниця",
+            ? "Buses"
+            : "Railway",
       )
       .join(", ");
     chips.push(
       <Chip key="modes" onRemove={onRemoveMode}>
-        Режими: {parts || "нема"}
+        Mode: {parts || "absent"}
       </Chip>,
     );
   }
@@ -189,10 +189,10 @@ export function CMPActiveFiltersBar({
   // якщо не хочеш показувати — забери блок
   if (filters.sort && filters.sort !== "time-asc") {
     const map: Record<string, string> = {
-      "time-asc": "Час ↑",
-      "time-desc": "Час ↓",
-      "price-asc": "Ціна ↑",
-      "price-desc": "Ціна ↓",
+      "time-asc": "Time ↑",
+      "time-desc": "Time ↓",
+      "price-asc": "Price ↑",
+      "price-desc": "Price ↓",
     };
     chips.push(
       <Chip
@@ -201,7 +201,7 @@ export function CMPActiveFiltersBar({
           onChange({ ...filters, sort: "time-asc" })
         }
       >
-        Сортування: {map[filters.sort]}
+        Sort: {map[filters.sort]}
       </Chip>,
     );
   }

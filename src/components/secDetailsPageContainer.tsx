@@ -236,7 +236,7 @@ export function SECDetailsPageContainer({
                 </div>
                 <div className="inline-flex items-center gap-1">
                   <Ticket className="h-4 w-4" />
-                  {offer.priceUAH} грн
+                  {offer.priceUAH} usd
                 </div>
                 {offer.kind === "carpool" && (
                   <div className="inline-flex items-center gap-1">
@@ -345,7 +345,7 @@ function CarpoolSection({
               )}
             </div>
             <div className="text-muted-foreground">
-              Рейтинг: {offer.driver.rating ?? "—"} • Trips:{" "}
+              Rating: {offer.driver.rating ?? "—"} • Trips:{" "}
               {offer.driver.trips ?? "—"}
             </div>
           </div>
@@ -555,7 +555,7 @@ function buildConfirmLines(
     label: "Depart",
     value: formatDateTime(depart),
   });
-  lines.push({ label: "Price", value: `${offer.priceUAH} грн` });
+  lines.push({ label: "Price", value: `${offer.priceUAH} usd` });
   if (offer.kind === "carpool") {
     lines.push({ label: "Driver", value: offer.driver.name });
     lines.push({

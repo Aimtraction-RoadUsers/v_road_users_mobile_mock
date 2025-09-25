@@ -69,7 +69,7 @@ function formatUAH(n: number) {
       maximumFractionDigits: 0,
     }).format(n);
   } catch {
-    return `${n} грн`;
+    return `${n} usd`;
   }
 }
 
@@ -407,10 +407,10 @@ export function CMPResults({
                   className="absolute right-0 mt-1 w-44 rounded-lg border bg-popover p-1 shadow-sm"
                 >
                   {[
-                    { key: "time-asc", label: "Час ↑" },
-                    { key: "time-desc", label: "Час ↓" },
-                    { key: "price-asc", label: "Ціна ↑" },
-                    { key: "price-desc", label: "Ціна ↓" },
+                    { key: "time-asc", label: "Time ↑" },
+                    { key: "time-desc", label: "Time ↓" },
+                    { key: "price-asc", label: "Time ↑" },
+                    { key: "price-desc", label: "Time ↓" },
                   ].map((opt) => (
                     <button
                       key={opt.key}
